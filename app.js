@@ -10,6 +10,7 @@ const searchInput = document.querySelector('#searchInput');
 const sortSelect = document.querySelector('#sortSelect');
 const resultCount = document.querySelector('#resultCount');
 const loadMore = document.querySelector('#loadMore');
+const featuredGrid = document.querySelector('#featuredGrid');
 
 const compact = n => n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}K` : String(n || 0);
 const success = a => {
@@ -55,6 +56,16 @@ function render(){
   loadMore.hidden=visible>=list.length;
 }
 
+function renderFeatured(){
+  const top=[...actors].sort((a,b)=>(b.stats?.totalUsers||0)-(a.stats?.totalUsers||0)).slice(0,3);
+  featuredGrid.innerHTML='';
+  top.forEach((a,index)=>{
+    const card=document.createElement('article');card.className='featured-card';card.dataset.rank=String(index+1).padStart(2,'0');
+    card.innerHTML=`<span class="featured-label">${index===0?'Most popular':'Featured Actor'}</span><h3></h3><p></p><div class="featured-meta"><span><strong>${compact(a.stats?.totalUsers)}</strong> users</span><span><strong>${success(a)||'—'}${success(a)?'%':''}</strong> success</span></div><a href="https://apify.com/${a.username}/${a.name}" target="_blank" rel="noreferrer">View on Apify ↗</a>`;
+    card.querySelector('h3').textContent=a.title;card.querySelector('p').textContent=a.description;featuredGrid.appendChild(card);
+  });
+}
+
 async function init(){
   try{
     const response=await fetch(API);if(!response.ok)throw new Error('Catalog unavailable');
@@ -64,7 +75,7 @@ async function init(){
     document.querySelector('#actorCount').textContent=actors.length;
     document.querySelector('#userCount').textContent=`${compact(users)}+`;
     if(totals.all)document.querySelector('#successRate').textContent=`${(totals.ok/totals.all*100).toFixed(1)}%`;
-    buildFilters();render();
+    renderFeatured();buildFilters();render();
   }catch(error){resultCount.textContent='Catalog temporarily unavailable';grid.innerHTML='<div class="empty">The live catalog could not load. Browse all Actors directly on <a href="https://apify.com/apivault_labs">Apify Store ↗</a></div>'}
 }
 
