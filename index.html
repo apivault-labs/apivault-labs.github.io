@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ApiVault Labs — Web Scrapers & Data APIs</title>
+  <meta name="description" content="Explore 50+ production-ready Apify Actors for lead generation, e-commerce, jobs, reviews, social media, real estate, and AI automation.">
+  <meta name="theme-color" content="#07100e">
+  <meta property="og:title" content="ApiVault Labs — Web Scrapers & Data APIs">
+  <meta property="og:description" content="Production-ready Apify Actors, data extraction APIs, and custom automation solutions.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://api.apify.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="ApiVault Labs home">
+      <span class="brand-mark">AV</span>
+      <span><strong>ApiVault</strong><small>Labs</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#catalog">Actors</a>
+      <a href="#services">Services</a>
+      <a href="https://github.com/apivault-labs" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="nav-cta" href="mailto:apivault.labs@gmail.com">Build with us</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow"><span></span> Data infrastructure for teams that move fast</div>
+      <h1>Turn the public web into<br><em>usable business data.</em></h1>
+      <p class="hero-copy">Production-ready web scrapers, data extraction APIs, and automation tools for lead generation, market intelligence, e-commerce, and AI workflows.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#catalog">Explore the catalog <span>↘</span></a>
+        <a class="button button-secondary" href="mailto:apivault.labs@gmail.com">Commission an Actor</a>
+      </div>
+      <div class="metrics" aria-label="ApiVault Labs statistics">
+        <div><strong id="actorCount">56</strong><span>public Actors</span></div>
+        <div><strong id="userCount">2.8K+</strong><span>total users</span></div>
+        <div><strong id="successRate">98%+</strong><span>run success</span></div>
+        <div><strong>~7h</strong><span>support response</span></div>
+      </div>
+    </section>
+
+    <section class="catalog shell" id="catalog">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">The catalog</span>
+          <h2>Find your data source.</h2>
+        </div>
+        <p>Search production-ready Actors by platform, use case, or category. Every tool opens directly in Apify Store.</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search Actors, platforms, or use cases…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <label class="sort-wrap">
+          <span class="sr-only">Sort Actors</span>
+          <select id="sortSelect">
+            <option value="popular">Most popular</option>
+            <option value="trending">Trending now</option>
+            <option value="rating">Highest rated</option>
+            <option value="name">A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filters" id="filters" aria-label="Filter by category"></div>
+      <div class="catalog-status"><span id="resultCount">Loading catalog…</span><span class="live-dot">Live from Apify</span></div>
+      <div class="grid" id="actorGrid" aria-live="polite"></div>
+      <button class="load-more" id="loadMore" hidden>Show more Actors</button>
+    </section>
+
+    <section class="services shell" id="services">
+      <div class="service-intro">
+        <span class="kicker">Custom development</span>
+        <h2>Need data that<br>isn’t in the catalog?</h2>
+      </div>
+      <div class="service-copy">
+        <p>Tell us the source, fields, volume, and frequency. We build custom Apify Actors, extraction APIs, monitoring pipelines, and integrations for real production workflows.</p>
+        <a href="mailto:apivault.labs@gmail.com">apivault.labs@gmail.com <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <div class="brand footer-brand"><span class="brand-mark">AV</span><span><strong>ApiVault</strong><small>Labs</small></span></div>
+    <p>Reliable data extraction for business and AI.</p>
+    <div>
+      <a href="https://apify.com/apivault_labs" target="_blank" rel="noreferrer">Apify</a>
+      <a href="https://github.com/apivault-labs" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/apivault-labs-a2755742a" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <template id="cardTemplate">
+    <article class="actor-card">
+      <div class="card-top"><span class="card-icon"></span><span class="card-trend"></span></div>
+      <div class="card-category"></div>
+      <h3></h3>
+      <p></p>
+      <div class="card-stats"></div>
+      <a class="card-link" target="_blank" rel="noreferrer">Open in Apify <span>↗</span></a>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
