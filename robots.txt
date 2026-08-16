@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://apivault-labs.github.io/sitemap.xml
